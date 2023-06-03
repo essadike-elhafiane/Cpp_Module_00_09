@@ -1,8 +1,8 @@
-NAME = PhoneBook
-FLG = -Wall -Wextra -Werror -std=c++98
+NAME = Zombie
+FLG = -std=c++98
 CPP = c++
 RM = rm -f
-SRC = PhoneBook.cpp main.cpp Contact.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CPP) $(FLG) $(OBJ) -o $@
 
-%.o:  %.cpp PhoneBook.hpp
+%.o:  %.cpp 
 	$(CPP) $(FLG) -c $< -o $@
 
 clean:
@@ -21,5 +21,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re : fclean all
-
-.PHONY: clean fclean all re
