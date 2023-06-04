@@ -1,4 +1,4 @@
-NAME = Zombie
+NAME = brain
 FLG = -std=c++98
 CPP = c++
 RM = rm -f
