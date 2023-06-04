@@ -1,0 +1,23 @@
+NAME = replace
+FLG = -std=c++98
+CPP = c++
+RM = rm -f
+SRC = main.cpp prog.cpp
+
+O = $(SRC:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(O)
+	$(CPP) $(FLG) $(O) -o $@
+
+%.o:  %.cpp header.hpp
+	$(CPP) $(FLG) -c $< -o $@
+
+clean:
+	$(RM) $(O)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re : fclean all
