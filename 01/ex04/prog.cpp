@@ -6,7 +6,7 @@
 /*   By: eelhafia <eelhafia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 19:26:07 by eelhafia          #+#    #+#             */
-/*   Updated: 2023/06/04 20:08:19 by eelhafia         ###   ########.fr       */
+/*   Updated: 2023/06/05 01:04:53 by eelhafia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void    fun_write_in_outfile(std::ifstream& fd, std::ofstream& out_fd, char **av
             std::size_t pos = str.find(av[2]);
             while (i < pos && str[i] && pos != std::string::npos)
                 out_fd << str[i++];  
-            while (pos != std::string::npos)
+            while (pos != std::string::npos && std::string(av[2]).length() > 0)
             {
                 if (i == pos && str[i])
                 {

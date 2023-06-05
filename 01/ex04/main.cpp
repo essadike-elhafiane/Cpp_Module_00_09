@@ -6,12 +6,12 @@
 /*   By: eelhafia <eelhafia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 17:39:53 by eelhafia          #+#    #+#             */
-/*   Updated: 2023/06/04 19:37:01 by eelhafia         ###   ########.fr       */
+/*   Updated: 2023/06/05 01:04:10 by eelhafia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
-
+#include <stdio.h>
 int main(int ac, char ** av)
 {
     if (ac < 4 || ac > 4)
@@ -22,6 +22,9 @@ int main(int ac, char ** av)
     std::ofstream out_fd(std::string(av[1]) + ".replace");
     if (!fd.is_open())
         return (std::cerr << "Error: could not open outfile" << std::endl, 1);
+//     if (av[2] == '\0')
+//         return (0);
+//    printf("%s\n", av[2]);
     fun_write_in_outfile(fd, out_fd, av);
     fd.close();
     out_fd.close();
