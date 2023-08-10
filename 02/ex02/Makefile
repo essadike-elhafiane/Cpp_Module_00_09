@@ -1,18 +1,18 @@
 NAME = fixed
-FLG = -std=c++98
-CPP = c++
+FLG = -Wall -Wextra -Werror -std=c++98
+CC = c++
 RM = rm -f
-SRC = main.cpp Fixed.cpp
 
+SRC = main.cpp Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CPP) $(FLG) $(OBJ) -o $@
+	$(CC) $(FLG) $(OBJ) -o $@ 
 
-%.o:  %.cpp Fixed.hpp
-	$(CPP) $(FLG) -c $< -o $@
+%.o: %.cpp Fixed.hpp
+	$(CC) $(FLG) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
