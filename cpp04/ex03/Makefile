@@ -1,19 +1,19 @@
 NAME = Interface
 CC = c++
-FLG = -Wall -Wextra -Werror -g -std=c++98
+FLG = -Wall -Wextra -Werror -std=c++98
 RM = rm -f 
 
-SRC = main.cpp file.cpp AMateria.cpp characters.cpp
+SRC = main.cpp Cure.cpp AMateria.cpp  Ice.cpp Character.cpp MateriaSource.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $@
+	$(CC) $(FLG) $(OBJ) -o $@
 
-%.o: %.cpp file.hpp characters.hpp amataria.hpp
-	$(CC) -c $< -o $@
+%.o: %.cpp Cure.hpp AMateria.hpp Ice.hpp Character.hpp ICharacter.hpp  MateriaSource.hpp IMateriaSource.hpp 
+	$(CC) $(FLG) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)

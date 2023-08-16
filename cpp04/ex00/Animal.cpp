@@ -1,4 +1,4 @@
-#include "Poly.hpp"
+#include "Animal.hpp"
 
 Animal::Animal()
 {
@@ -17,7 +17,7 @@ void Animal::setType(std::string type)
 
 void Animal::makeSound() const
 {
-    std::cout << "sgdsg" << std::endl;
+    std::cout << "Animal sound !" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& An)

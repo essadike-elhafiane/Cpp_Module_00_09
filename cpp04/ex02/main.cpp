@@ -1,8 +1,14 @@
-#include "Poly.hpp"
+#include "AAnimal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
+void f()
+{
+    system("leaks animal");
+}
 int main()
 {
-    // const AAnimal* meta = new Animal();
+    // const AAnimal* meta = new AAnimal();
     const AAnimal* j = new Dog();
     const AAnimal* i = new Cat();
     // atexit(v);
@@ -15,5 +21,9 @@ int main()
     // delete meta;
     delete j;
     delete i;
+    Cat a;
+    Cat b;
+    a = b;
+    atexit(f);
     return 0;
 }
