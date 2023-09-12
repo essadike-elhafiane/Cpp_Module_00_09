@@ -2,13 +2,21 @@
 
 void	ScalarConverter::convert(std::string const & str)
 {
+	ScalarConverter a;
+	a.convertt(str);
+	std::cout << a;
+}
+
+void	ScalarConverter::convertt(std::string const & str)
+{
 	if (str == "nan" || str == "nanf")
-		this->nan = true;
+		nan = true;
 	else if (str == "-inf" || str == "-inff") 
 		this->inf_ = true;
 	else if (str == "inf" || str == "inff") 
 		this->inf = true;
-	else{
+	else
+    {
 		if(isInt(str))
 		{
 			double max_int = atof(str.c_str());
@@ -98,10 +106,12 @@ bool ScalarConverter::isFlaot(std::string const & str)
     {	
         if(i == 0 && (str[0] == '-' || str[0] == '+'))
             i++;
-        if (str[i] == '.' || str[i] == 'f')
+        if (str[i] && (str[i] == '.' || str[i] == 'f'))
             i++;
+        if (!str[i])
+            break;
         if (str[i] && (str[i] < 48 || str[i] > '9'))
-            return false;		
+            return false;	
     }
     return true;
 }

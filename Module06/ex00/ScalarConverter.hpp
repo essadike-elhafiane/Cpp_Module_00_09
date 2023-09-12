@@ -3,8 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include <cctype>
-#include <iomanip>
+
 class  ScalarConverter
 {   
 	private:    
@@ -19,15 +18,16 @@ class  ScalarConverter
 		ScalarConverter();
 		ScalarConverter(ScalarConverter const & Sc);
 		ScalarConverter& operator = (ScalarConverter const & Sc);
-		void	convert(std::string const & str);
+		static void	convert(std::string const & str);
+		void	convertt(std::string const & str);
 
-		bool ischar(std::string const &str);
+		static bool ischar(std::string const &str);
 
-		bool isInt(std::string const & str);
+		static bool isInt(std::string const & str);
 
-		bool isFlaot(std::string const & str);
+		static bool isFlaot(std::string const & str);
 
-		bool isDouble(std::string const & str);
+		static bool isDouble(std::string const & str);
 
 		bool isnan() const;
 		bool isinf() const;
