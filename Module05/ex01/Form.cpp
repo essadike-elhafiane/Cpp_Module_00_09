@@ -3,14 +3,14 @@
 
 Form::GradeTooHighException::GradeTooHighException(){};
 
-const char *Form::GradeTooHighException::what() const _NOEXCEPT
+const char *Form::GradeTooHighException::what() const throw()
 {
     return ("highest possible grade");
 }
 
 Form::GradeTooLowException::GradeTooLowException(){};
 
-const char *Form::GradeTooLowException::what() const _NOEXCEPT
+const char *Form::GradeTooLowException::what() const throw()
 {
     return ("lowest possible grade");
 }

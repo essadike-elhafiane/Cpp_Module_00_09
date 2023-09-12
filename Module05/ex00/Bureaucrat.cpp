@@ -10,13 +10,13 @@ Bureaucrat::Bureaucrat(const std::string& _name, int _grade): name(_name){
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(){};
 
-const char *Bureaucrat::GradeTooHighException::what() const _NOEXCEPT
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
     return ("highest possible grade");
 }
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(){};
-const char *Bureaucrat::GradeTooLowException::what() const _NOEXCEPT
+const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("lowest possible grade");
 }
@@ -48,9 +48,9 @@ Bureaucrat::Bureaucrat(): name("null")
 {
     grade = 150;
 };
-Bureaucrat::Bureaucrat(const Bureaucrat &b)
+Bureaucrat::Bureaucrat(const Bureaucrat &b):name(b.name)
 {
-    *this = b;
+    grade = b.grade;
 };
 Bureaucrat& Bureaucrat::operator = (const Bureaucrat& b)
 {

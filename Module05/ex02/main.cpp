@@ -8,14 +8,11 @@
 int main()
 {
     Bureaucrat b("bob", 50);
-    // AForm f("ff", false, 10, 10);
     ShrubberyCreationForm f("simo");
     RobotomyRequestForm   r("hh");
     PresidentialPardonForm P("pre");
     try
     {
-        // b.Gradedecrement();
-        // b.signAForm(f);
         std::cout << f << std::endl ;
         std::cout << P << std::endl ;
         // b.Gradeincrement();

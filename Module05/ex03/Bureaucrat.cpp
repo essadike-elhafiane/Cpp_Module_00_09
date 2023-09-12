@@ -10,14 +10,14 @@ Bureaucrat::Bureaucrat(const std::string& _name, int _grade): name(_name){
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(){};
 
-const char *Bureaucrat::GradeTooHighException::what() const _NOEXCEPT
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
     return ("highest possible grade");
 }
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(){};
 
-const char *Bureaucrat::GradeTooLowException::what() const _NOEXCEPT
+const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("lowest possible grade");
 }
@@ -53,9 +53,9 @@ Bureaucrat::Bureaucrat(): name("null")
     grade = 150;
 };
 
-Bureaucrat::Bureaucrat(const Bureaucrat &b)
+Bureaucrat::Bureaucrat(const Bureaucrat &b):name(b.name)
 {
-    *this = b;
+    grade = b.grade;
 };
 
 Bureaucrat& Bureaucrat::operator = (const Bureaucrat& b)
@@ -78,7 +78,7 @@ void Bureaucrat::signForm(AForm &form)
     if (form.getSingndStatus())
         std::cout << this->name << " signed " << form.getName() << std::endl;
     else
-        std::cout << this->name << " couldn’t sign " << form.getName() << " because thier grade is low" << std::endl; 
+        std::cout << this->name << " couldn’t sign " << form.getName() << " because His grade is low" << std::endl; 
 }
 
 void Bureaucrat::executeForm(AForm const &form)

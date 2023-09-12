@@ -13,12 +13,13 @@ Intern& Intern::operator=(Intern const& I)
 
 AForm* Intern::makeForm(std::string const nameForm, std::string const target)
 {
-    std::string AForms[3] = {"robotomy request", "presidential pardon", "shrubbery creation"};
-    AForm* (Intern::*frms[3])(const std::string) = {&Intern::makeFormR, &Intern::makeFormP, &Intern::makeFormS };
     AForm* F;
     int i = 0;
+
+    std::string AForms[3] = {"robotomy request", "presidential pardon", "shrubbery creation"};
+    AForm* (Intern::*frms[3])(const std::string) = {&Intern::makeFormR, &Intern::makeFormP, &Intern::makeFormS };
     while(i < 3 && AForms[i] != nameForm)
-        i++;        
+        i++;
     if (i == 3)
         throw "Error Form not fond !";
     F = (this->*frms[i])(target);

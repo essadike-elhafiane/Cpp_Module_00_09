@@ -13,21 +13,21 @@ class Form
         bool is_signd;
         const int grade_sign;
         const int grade_exe;
+    public:
         Form();
         Form(std::string const name, bool is_signd,  const int grade_sign, const int grade_exe);
-    public:
         Form(const Form& form);
         Form& operator = (const Form& form);
         ~Form();
         class GradeTooHighException: public std::exception{
             public:
                 GradeTooHighException();
-                const char *what() const _NOEXCEPT;
+                const char *what() const throw();
         };
         class GradeTooLowException: public std::exception{
             public:
                 GradeTooLowException();
-                const char *what() const _NOEXCEPT;
+                const char *what() const throw();
         };
         void beSigned(Bureaucrat &Br);
         std::string getName();

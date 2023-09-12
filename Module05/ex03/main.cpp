@@ -5,13 +5,8 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-void v()
-{
-    system("leaks Bureaucrat");
-}
 int main()
 {
-    atexit(v);
     Bureaucrat b("bob", 40);
     // AForm f("ff", false, 10, 10);
     ShrubberyCreationForm f("simo");

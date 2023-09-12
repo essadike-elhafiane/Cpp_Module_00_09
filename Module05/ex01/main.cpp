@@ -4,10 +4,10 @@
 
 int main()
 {
-    Bureaucrat b("bob", 11);
-    Form f("ff", false, 10, 10);
     try
     {
+        Bureaucrat b("bob", 11);
+        Form f("ff", false, 10, 10);
         // b.Gradedecrement();
         b.signForm(f);
         b.Gradeincrement();

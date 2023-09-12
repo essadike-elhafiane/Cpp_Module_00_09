@@ -2,14 +2,14 @@
 
 AForm::GradeTooHighException::GradeTooHighException(){};
 
-const char *AForm::GradeTooHighException::what() const _NOEXCEPT
+const char *AForm::GradeTooHighException::what() const throw()
 {
     return ("highest possible grade");
 }
 
 AForm::GradeTooLowException::GradeTooLowException(){};
 
-const char *AForm::GradeTooLowException::what() const _NOEXCEPT
+const char *AForm::GradeTooLowException::what() const throw()
 {
     return ("lowest possible grade");
 }
