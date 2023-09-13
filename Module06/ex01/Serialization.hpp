@@ -17,32 +17,13 @@ class Serialization
 {
     public:
         Serialization(/* args */);
-        Serialization(const Serialization &Se)
-        {
-            *this = Se;
-        }
-        Serialization& operator=(const Serialization& Se)
-        {
-            (void)Se;
-            return (*this);
-        }
-        static uintptr_t serialize(Data* ptr)
-        {
-            return reinterpret_cast<uintptr_t>(ptr);
-        }
-        static Data* deserialize(uintptr_t raw)
-        {
-            return reinterpret_cast<Data*>(raw);
-        }
+        Serialization(const Serialization &Se);
+        Serialization& operator=(const Serialization& Se);
+        static uintptr_t serialize(Data* ptr);
+        static Data* deserialize(uintptr_t raw);
         ~Serialization();
 };
 
-Serialization::Serialization(/* args */)
-{
-}
 
-Serialization::~Serialization()
-{
-}
 
 #endif
