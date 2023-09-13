@@ -8,9 +8,7 @@ struct Data{
     int id;
     unsigned int value;
     std::string name;
-    Data(int id, unsigned int value, std::string name):id(id),value(value),name(name)
-    {
-    };
+    Data(int id, unsigned int value, std::string name);
 };
 
 class Serialization

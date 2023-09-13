@@ -27,3 +27,7 @@ Data* Serialization::deserialize(uintptr_t raw)
 {
     return reinterpret_cast<Data*>(raw);
 }
+
+Data::Data(int id, unsigned int value, std::string name):id(id),value(value),name(name)
+{
+};
