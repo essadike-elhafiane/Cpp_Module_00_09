@@ -59,42 +59,11 @@ Base * generate(void)
 {   
     srand(time(0));
     int i = rand() % 3;
-    if (i == 0)
-    {    
+    if (i == 0) 
         return new A;
-    }
     if (i == 1)
-    {    
-        B  *BB = new B();
-        return reinterpret_cast<Base*>(BB);
-    }
+        return new B;
     else
-    {    
-        C *CC = new C();
-        return reinterpret_cast<Base*>(CC);
-    }
+        return new C;
 }
 
-C::C(/* args */)
-{
-}
-
-C::~C()
-{
-}
-
-B::B()
-{
-}
-
-B::~B()
-{
-}
-
-A::A(/* args */)
-{
-}
-
-A::~A()
-{
-}

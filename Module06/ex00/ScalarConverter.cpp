@@ -13,7 +13,7 @@ void	ScalarConverter::convertt(std::string const & str)
 		nan = true;
 	else if (str == "-inf" || str == "-inff") 
 		this->inf_ = true;
-	else if (str == "inf" || str == "inff") 
+	else if (str == "+inf" || str == "+inff") 
 		this->inf = true;
 	else
     {

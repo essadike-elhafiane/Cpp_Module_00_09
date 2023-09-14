@@ -6,8 +6,8 @@
 int main()
 {
     Base *p = generate();
-    // Base *A = new C();
-    // Base &d = *A;
+    // Base *C = new C();
+    // Base &d = *C;
     Base &rf = *p;
     identify(p);
     identify(rf);
