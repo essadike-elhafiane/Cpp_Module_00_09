@@ -2,26 +2,65 @@
 #define ARRAY_HPP
 #include <stdlib.h>
 
-template<typename T, size_t size>
+template<typename T>
 class Array
 {
     private:
-        T arr[size];
+        T *arr;
+        size_t _size;
     public:
         ~Array()
         {
-            
+             delete[] arr;
         }
-        Array(/* args */)
+        Array()
         {
-                arr[0];
+                arr = NULL;
+                _size = 0;
         }
+        Array(const Array& Arr)
+        {
+            *this = Arr;
+        }
+        Array& operator=(const Array& Arr) 
+        {
+            if (this != &Arr)
+            {
+                delete[] arr;
+                arr = NULL;
+                if (Arr._size)
+                {
+                    arr = new T[Arr.size()];
+                    for (size_t i = 0; i < Arr.size(); i++)
+                        arr[i] = Arr.arr[i];
+                }
+                _size = Arr.size();
+            }
+            return *this;
+        }
+
         Array(unsigned int n)
         {
-            arr[n];
+            arr = new T[n];
+            T *def = new T();
             for (size_t i = 0; i < n; i++)
-                arr[n] = 1;
+                arr[i] = *def;
+            _size = n;
+            delete def;
         }
+
+        size_t size() const
+        {
+            return _size;
+        }
+
+        T& operator[] (size_t size) const
+        {
+            if (size < 0 || size >= _size)
+                throw "Error out of range !";
+            return arr[size];
+        }
+
 };
 
 
