@@ -9,19 +9,27 @@ class Array
         T *arr;
         size_t _size;
     public:
-        ~Array()
-        {
-             delete[] arr;
-        }
         Array()
         {
                 arr = NULL;
                 _size = 0;
         }
+
+        Array(unsigned int n)
+        {
+            arr = new T[n];
+            T *def = new T();
+            for (size_t i = 0; i < n; i++)
+                arr[i] = *def;
+            _size = n;
+            delete def;
+        }
+
         Array(const Array& Arr)
         {
             *this = Arr;
         }
+
         Array& operator=(const Array& Arr) 
         {
             if (this != &Arr)
@@ -39,19 +47,9 @@ class Array
             return *this;
         }
 
-        Array(unsigned int n)
+        ~Array()
         {
-            arr = new T[n];
-            T *def = new T();
-            for (size_t i = 0; i < n; i++)
-                arr[i] = *def;
-            _size = n;
-            delete def;
-        }
-
-        size_t size() const
-        {
-            return _size;
+             delete[] arr;
         }
 
         T& operator[] (size_t size) const
@@ -59,6 +57,11 @@ class Array
             if (size < 0 || size >= _size)
                 throw "Error out of range !";
             return arr[size];
+        }
+
+        size_t size() const
+        {
+            return _size;
         }
 
 };

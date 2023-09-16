@@ -4,11 +4,11 @@
 #include <string>
 #include <stdlib.h>
 
-template <typename T,typename Size, typename Fun>
+template <typename T, typename Fun>
 
-void iter(const T *address, const Size &size, const Fun &function)
+void iter(const T *address, size_t size, const Fun &function)
 {
-    for (Size i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
         function(address[i]);
 }
 
