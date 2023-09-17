@@ -1,6 +1,8 @@
 #include "Brain.hpp"
 
-Brain::Brain(){};
+Brain::Brain(){
+    std::cout << "Brain constructor called !" << std::endl;
+};
 
 Brain::Brain(const Brain& br){
     for (int i = 0; i < 100; i++)
@@ -14,4 +16,6 @@ Brain& Brain::operator = (const Brain& br)
     return (*this);
 }
 
-Brain::~Brain(){};
+Brain::~Brain(){
+    std::cout << "Brain destructor called !" << std::endl;
+};

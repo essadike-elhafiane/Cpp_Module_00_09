@@ -1,9 +1,10 @@
 #ifndef ICE_HPP
 #define ICE_HPP
+
+#include <iostream>
+#include <string>
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
-
-
 
 class Ice: public AMateria{
 

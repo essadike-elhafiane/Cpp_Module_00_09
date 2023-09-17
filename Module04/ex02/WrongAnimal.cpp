@@ -2,6 +2,7 @@
 
 WrongAnimal::WrongAnimal()
 {
+    std::cout << "WrongAnimal constructor called !" << std::endl;
     type = "WrongAnimal";
 }
 
@@ -31,4 +32,6 @@ WrongAnimal::WrongAnimal(const WrongAnimal& An)
     *this = An;
 }
 
-WrongAnimal::~WrongAnimal(){};
+WrongAnimal::~WrongAnimal(){
+    std::cout << "WrongAnimal destructor called !" << std::endl;
+};

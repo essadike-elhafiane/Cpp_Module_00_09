@@ -2,10 +2,6 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-// void f()
-// {
-//     system("leaks animal");
-// }
 int main()
 {
     const Animal* meta = new Animal();
@@ -16,10 +12,10 @@ int main()
     i->makeSound();
     j->makeSound();
     meta->makeSound();
-    
-    // atexit(f);
+
     delete meta;
     delete j;
     delete i;
     return 0;
+
 }

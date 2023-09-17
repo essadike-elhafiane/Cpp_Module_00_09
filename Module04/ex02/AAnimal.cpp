@@ -2,6 +2,7 @@
 
 AAnimal::AAnimal()
 {
+    std::cout << "AAnimal constructor called !" << std::endl;
     type = "AAnimal";
 }
 
@@ -26,4 +27,6 @@ AAnimal::AAnimal(const AAnimal& An)
     *this = An;
 }
 
-AAnimal::~AAnimal(){};
+AAnimal::~AAnimal(){
+    std::cout << "AAnimal destructor called !" << std::endl;
+};

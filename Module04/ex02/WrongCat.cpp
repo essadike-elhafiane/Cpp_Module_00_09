@@ -7,6 +7,7 @@ void WrongCat::makeSound() const
 
 WrongCat::WrongCat()
 {
+    std::cout << "WrongCat constructor called !" << std::endl;
     type = "WrongCat";
 }
 WrongCat::WrongCat(const WrongCat& wrongcat)
@@ -20,4 +21,6 @@ WrongCat& WrongCat::operator = (const WrongCat& wrongcat)
     return (*this);
 }
 
-WrongCat::~WrongCat(){};
+WrongCat::~WrongCat(){
+    std::cout << "WrongCat destructor called !" << std::endl;
+};

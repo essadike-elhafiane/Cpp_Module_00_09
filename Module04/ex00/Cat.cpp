@@ -7,6 +7,7 @@ void Cat::makeSound() const
 
 Cat::Cat()
 {
+    std::cout << "Cat constructor called !" << std::endl;
     type = "cat";
 }
 Cat::Cat(const Cat& cat)
@@ -20,4 +21,6 @@ Cat& Cat::operator = (const Cat& Cat)
     return (*this);
 }
 
-Cat::~Cat(){};
+Cat::~Cat(){
+    std::cout << "Cat destructor called !" << std::endl;
+};

@@ -7,6 +7,7 @@ void Dog::makeSound() const
 
 Dog::Dog()
 {
+    std::cout << "Dog constructor called !" << std::endl;
     type = "dog";
 }
 
@@ -21,4 +22,6 @@ Dog& Dog::operator = (const Dog& dog)
     return (*this);
 }
 
-Dog::~Dog(){};
+Dog::~Dog(){
+    std::cout << "Dog destructor called !" << std::endl;
+};

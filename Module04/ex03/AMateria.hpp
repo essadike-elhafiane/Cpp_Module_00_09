@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "ICharacter.hpp"
 
 class ICharacter;
 
@@ -18,8 +19,5 @@ class AMateria
         virtual void use(ICharacter& target);
         virtual~AMateria();
 };
-
-#include "Cure.hpp"
-#include "Ice.hpp"
 
 #endif

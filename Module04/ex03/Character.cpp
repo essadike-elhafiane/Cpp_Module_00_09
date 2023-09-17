@@ -28,7 +28,10 @@ Character& Character::operator = (const Character& cr)
     name = cr.getName();
     for (int i = 0; i < 4; i++)
     {
-        this->inventory[i] = cr.inventory[i]->clone();
+        if (cr.inventory[i] != nullptr)
+            this->inventory[i] = cr.inventory[i]->clone();
+        else
+            this->inventory[i] = nullptr;
         this->garbge[i] = nullptr;
     }
     return (*this);
