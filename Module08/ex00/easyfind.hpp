@@ -6,12 +6,10 @@
 #include <vector>
 
 template <typename T>
-size_t easyfind(T& container, int value)
+int easyfind(T& container, int value)
 {
-    for (size_t i = 0; i < container.size(); i++)
-        if(container[i] == value)
-            return i;
-    
+    if (std::find(container.begin(), container.end(), value) != container.end())
+        return std::distance(container.begin(), std::find(container.begin(), container.end(), value));
     throw "Error element not found !";
 }
 

@@ -2,18 +2,16 @@
 
 int main()
 {
-    Span sp = Span(10);
+    Span sp = Span(6);
     try
     {
-        sp.addNumber(-1);
-        sp.addNumber(-111);
-        sp.addNumber(-1102);
-        sp.addNumber(-100);
-        sp.addNumber(-110);
-        // sp.print();
+        sp.addNumber(6);
+        sp.addNumber(3);
+        sp.addNumber(17);
+        sp.addNumber(9);
+        sp.addNumber(11);
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
-        
     }
     catch(const char * s)
     {
