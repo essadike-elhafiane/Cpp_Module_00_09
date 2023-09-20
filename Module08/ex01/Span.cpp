@@ -9,6 +9,7 @@ Span::Span(unsigned int _size)
 {
     size = _size;
 }
+
 Span::Span(const Span& span)
 {
     *this = span;
@@ -39,17 +40,18 @@ void Span::addNumber(int value)
 int Span::shortestSpan()
 {
     if (size == 0 || list.size() <= 1)
-        throw "Error lenght of containe is short !";
-    int shortspan = list[1] - list[0];
+        throw "Error !";
+    int shortspan = *(list.begin() + 1) - *(list.begin());
     for (size_t i = 0; i < list.size() - 1; ++i) {
-        if (shortspan > list[i + 1] - list[i])
-            shortspan = list[i + 1] - list[i];
+        if (shortspan > *(list.begin() + 1 + i) - *(list.begin() + i))
+            shortspan = *(list.begin() + 1 + i) - *(list.begin() + i);
     }
     return shortspan;
 }
+
 int Span::longestSpan()
 {
     if (size == 0 || list.size() <= 1)
-        throw "Error lenght of containe is short !";
-    return (list[list.size() - 1] - list[0]);
+        throw "Error !";
+    return (*(list.end() - 1) - *(list.begin()));
 }

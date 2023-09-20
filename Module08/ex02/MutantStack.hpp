@@ -33,11 +33,11 @@ class MutantStack: public std::stack<T>
         }
         iterator rbegin()
         {
-            return this->c.begin();
+            return this->c.rbegin();
         }
         iterator rend()
         {
-            return this->c.end();
+            return this->c.rend();
         }
         const_iterator begin() const
         {
