@@ -30,6 +30,7 @@ bool isValidDate(int year, int month, int day) {
            validatedTime->tm_mday == day;
 }
 
+
 int main(int ac, char **av)
 {
     (void)av;
@@ -57,6 +58,14 @@ int main(int ac, char **av)
             std::cout << "Error: bad input => " << str << std::endl;
             continue;
         }
+        int j = 0;
+        while(str[j] == ' ' || str[j] == '\t')
+            j++;
+        if (!std::isdigit(str[j]))
+        {
+            std::cout << "Error input !" << str[j] << std::endl; 
+            continue;
+        }
         std::string date = str.substr(0, pos_pipe);
         size_t end = date.find_last_not_of(" \t");
         size_t start = date.find_first_not_of(" \t");
@@ -65,8 +74,6 @@ int main(int ac, char **av)
         start = numValue.find_first_not_of(" \t");
         end = numValue.find_last_not_of(" \t");
         std::string numValue1 = numValue.substr(start, end - start + 1);
-        // std::cout << std::endl << ":" << lastDate <<":" << "    :" << numValue1 <<":" <<std::endl;
-       
         if (lastDate.size() > 10)
         {
             std::cout << "Error: bad input => "<< str << std::endl;
@@ -75,33 +82,16 @@ int main(int ac, char **av)
         int tabdate[3];
         tabdate[0] = atoi(lastDate.c_str());
         tabdate[1] = atoi(lastDate.c_str() + 5);
-        tabdate[2] = atoi(lastDate.c_str() + 8);
+        int add = 8;
+        if(*(lastDate.c_str() + 7) != '-')
+            add--;
+        tabdate[2] = atoi(lastDate.c_str() + add);
         double value = atof(numValue1.c_str());
-        if (INT_MAX < value || INT_MIN > value)
-        {
-            std::cout << "Error: too large a number." << std::endl;
+        if (parsing(tabdate, value, lastDate, str, numValue1))
             continue;
-        }
-        if (value < 0)
-        {
-            std::cout << "Error: not a positive number." << std::endl;
-            continue;
-        }
-        if (tabdate[0] < 2009 || tabdate[0] > 2023)
-        {
-            std::cout << "Error "<< str << std::endl;
-            continue;
-        }
-        if (!isValidDate(tabdate[0] ,tabdate[1], tabdate[2]))
-        {
-            std::cout << "error " << str << std::endl;
-            continue;
-        }
         std::cout << lastDate << " => " << value << " = " << b.getLowerDate(lastDate) * value << std::endl;
         // std::cout << lastDate.c_str() + 5 << "|| " << numValue1.c_str() << " year : " << tabdate[0] << " Month : " << tabdate[1] << " Day: " << tabdate[2] << std::endl;
     }
-    // b.addNumber(12, "239-23-23");
-    // b.addNumber(14, "239-23-233");
     // b.print();
 
 }

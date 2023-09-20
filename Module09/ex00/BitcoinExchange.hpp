@@ -24,14 +24,17 @@ class BitcoinExchange
         }
         double getLowerDate(std::string& date)
         {
+            itrator itrr = dataBase.find(date);
+            if (itrr != dataBase.end())
+                return itrr->second;
             itrator itr = dataBase.lower_bound(date);
-            // --itr;
-            // std::cout  << std::endl << itr->first << std::endl;
+            if (itr != dataBase.begin())
+                --itr;
             return (itr->second);
         }
         ~BitcoinExchange();
 };
 
-
-
+int parsing(int *tabdate, double value, std::string& lastDate, std::string& str, std::string& numVaule);
+bool isValidDate(int year, int month, int day);
 #endif
