@@ -12,25 +12,12 @@ class RPN
         int numpush;
     public:
         RPN(/* args */);
-        void addNumber(int value)
-        {
-            numpush++;
-            s.push(value);
-        }
-        int getNumber()
-        {
-            int value = s.top();
-            s.pop();
-            return value;
-        }
-        size_t size()
-        {
-            return s.size();
-        }
-        int getNumbepush()
-        {
-            return numpush;
-        }
+        RPN(const RPN& R);
+        RPN& operator=(const RPN& P);
+        void addNumber(int value);
+        int getNumber();
+        size_t size();
+        int getNumbepush();
         ~RPN();
 };
 
