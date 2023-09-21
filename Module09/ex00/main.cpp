@@ -90,8 +90,5 @@ int main(int ac, char **av)
         if (parsing(tabdate, value, lastDate, str, numValue1))
             continue;
         std::cout << lastDate << " => " << value << " = " << b.getLowerDate(lastDate) * value << std::endl;
-        // std::cout << lastDate.c_str() + 5 << "|| " << numValue1.c_str() << " year : " << tabdate[0] << " Month : " << tabdate[1] << " Day: " << tabdate[2] << std::endl;
     }
-    // b.print();
-
 }

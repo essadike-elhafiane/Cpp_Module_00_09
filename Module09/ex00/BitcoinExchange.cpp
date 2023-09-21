@@ -2,15 +2,38 @@
 
 
 
-BitcoinExchange::BitcoinExchange(/* args */)
+BitcoinExchange::BitcoinExchange(/* args */){}
+
+BitcoinExchange::~BitcoinExchange(){}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange & bt)
 {
-    // dataInput.lower_bound
+    *this = bt;
+}
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& bt)
+{
+    this->dataBase = bt.dataBase;
+    return (*this);
 }
 
-BitcoinExchange::~BitcoinExchange()
+void BitcoinExchange::addNumber(double value, std::string date)
 {
+    dataBase.insert(std::map<std::string, double>::value_type(date, value));
 }
 
+void BitcoinExchange::print()
+{
+    for (itrator itr = dataBase.begin(); itr != dataBase.end(); itr++)
+        std::cout<< "key : " << itr->first << " value : " << itr->second << std::endl;
+}
+
+double BitcoinExchange::getLowerDate(std::string& date)
+{
+    itrator itr = dataBase.lower_bound(date);
+    if (itr != dataBase.begin() && date.compare(itr->first))
+        --itr;
+    return (itr->second);
+}
 
 int parsing(int *tabdate, double value, std::string& lastDate, std::string& str, std::string& numVaule)
 {
@@ -24,7 +47,7 @@ int parsing(int *tabdate, double value, std::string& lastDate, std::string& str,
         std::cout << "Error: not a positive number." << std::endl;
         return 1;
     }
-    if (tabdate[0] < 2009 || tabdate[0] > 2023)
+    if (tabdate[0] < 2009 || tabdate[0] > 2022)
     {
         std::cout << "Error "<< lastDate << std::endl;
         return 1;
