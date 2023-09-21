@@ -9,10 +9,12 @@ class RPN
 {
     private:
         std::stack<int> s;
+        int numpush;
     public:
         RPN(/* args */);
         void addNumber(int value)
         {
+            numpush++;
             s.push(value);
         }
         int getNumber()
@@ -24,6 +26,10 @@ class RPN
         size_t size()
         {
             return s.size();
+        }
+        int getNumbepush()
+        {
+            return numpush;
         }
         ~RPN();
 };

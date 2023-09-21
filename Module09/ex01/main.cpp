@@ -47,7 +47,7 @@ int main(int ac, char **av)
             s.addNumber(value);
         }
     }
-    if (s.size() != 1)
+    if (s.size() != 1 || s.getNumbepush() < 2)
         return( std::cout << "Error " << std::endl, 1);
     std::cout << s.getNumber() << std::endl;
 }
