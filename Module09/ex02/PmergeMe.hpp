@@ -5,39 +5,20 @@
 #include <iostream>
 #include <vector>
 #include <stdio.h>
+#include <deque>
 
 class PmergeMe
 {
     private:
         std::vector<unsigned int> vect;
+        std::deque<unsigned int> deq;
     public:
         PmergeMe(/* args */);
         ~PmergeMe();
-
-        void    addNumber(std::string s)
-        {
-            for (size_t i = 0; i < s.size(); i++)
-                if (!isdigit(s[i]) && s[i] != ' ')
-                    throw "Error: is not digit !";
-            double value = atof(s.c_str());
-            if (4294967295 < value)
-                throw "Error number to large";
-            vect.push_back((unsigned int)value);
-            std::cout<< ":" << s << ":" << std::endl;
-        }
-
-        void print()
-        {
-            
-            for (size_t i = 0; i < vect.size(); i++)
-            {
-                std::cout << vect[i] << " ";
-            }
-            std::cout << std::endl;
-            
-        }
+        PmergeMe(const PmergeMe* Pm);
+        PmergeMe& operator = (const PmergeMe& Pm);
+        void    addNumber(std::string s);
+        void print();
 };
-
-
 
 #endif
