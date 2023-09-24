@@ -165,6 +165,7 @@ void PmergeMe::sort_all_pairs(T& container)
 template <typename T>
 void PmergeMe::sort_pair(T& container)
 {
+    
     for (size_t i = 0; i < container.size(); i++)
     {
         if(container[i].first < container[i].second)
@@ -174,5 +175,8 @@ void PmergeMe::sort_pair(T& container)
             container[i].second = tmp;
         }
     }
-    sort_all_pairs(container);
+    std::sort(vect_pair.begin(), vect_pair.end(), (std::pair<int, int> &a, std::pair<int, int> &b)) {
+        return a.first > b.first;  // Use > instead of <
+    });
+    // sort_all_pairs(container);
 }
