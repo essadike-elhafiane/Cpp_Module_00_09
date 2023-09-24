@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 
+
 int main(int ac, char **av)
 {   
     if (ac <= 1)
@@ -21,9 +22,7 @@ int main(int ac, char **av)
             Pm.addNumber(s.substr(i, pos - last_pos));
             last_pos = pos;
         }
-        std::cout << "Before:  " << s << std::endl;
-        std::cout << "After:   ";
-        Pm.print();
+        Pm.merge();
     }
     catch(const char *s)
     {

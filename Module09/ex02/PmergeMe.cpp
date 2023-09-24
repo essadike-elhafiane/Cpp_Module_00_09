@@ -1,7 +1,4 @@
-
 #include "PmergeMe.hpp"
-
-
 
 void    PmergeMe::addNumber(std::string s)
 {
@@ -9,10 +6,10 @@ void    PmergeMe::addNumber(std::string s)
         if (!isdigit(s[i]) && s[i] != ' ')
             throw "Error: is not digit !";
     double value = atof(s.c_str());
-    if (4294967295 < value)
+    if (INT_MAX < value)
         throw "Error number to large";
-    vect.push_back((unsigned int)value);
-    deq.push_back((unsigned int)value);
+    vect.push_back((int)value);
+    deq.push_back((int)value);
 }
 
 void PmergeMe::print()
@@ -24,9 +21,9 @@ void PmergeMe::print()
     }
     std::cout << std::endl;
     std::cout<< "deque:   ";
-    for (size_t i = 0; i < vect.size(); i++)
+    for (size_t i = 0; i < deq.size(); i++)
     {
-        std::cout << vect[i] << " ";
+        std::cout << deq[i] << " ";
     }
     std::cout << std::endl;   
 }
