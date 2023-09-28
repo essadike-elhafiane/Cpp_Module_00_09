@@ -22,14 +22,20 @@ void    loadData(std::ifstream& data, BitcoinExchange& b)
 
 bool isValidDate(int year, int month, int day) {
     std::tm time = {0, 0, 0, day, month - 1, year - 1900,0,0,0,0,0};
-    std::time_t timeAsT = std::mktime(&time);
-    std::tm* validatedTime = std::localtime(&timeAsT);
+    std::mktime(&time);
 
-    return validatedTime->tm_year == year - 1900 &&
-           validatedTime->tm_mon == month - 1 &&
-           validatedTime->tm_mday == day;
+    return time.tm_year == year - 1900 &&
+           time.tm_mon == month - 1 &&
+           time.tm_mday == day;
 }
 
+void check_first_line(std::string str)
+{   
+    size_t end = str.find_last_not_of(" \t");
+    size_t start = str.find_first_not_of(" \t");
+        if(end <= start || str.substr(start, end - start + 1) != "date | value")
+            return(std::cout << "Error date | value not fond " << std::endl, exit(1));
+}
 
 int main(int ac, char **av)
 {
@@ -49,6 +55,7 @@ int main(int ac, char **av)
     {
         if (i == 0)
         {
+            check_first_line(str);
             i = 1;
             continue;
         }
@@ -73,12 +80,12 @@ int main(int ac, char **av)
         std::string numValue = str.substr(pos_pipe + 1, str.size());
         start = numValue.find_first_not_of(" \t");
         end = numValue.find_last_not_of(" \t");
-        std::string numValue1 = numValue.substr(start, end - start + 1);
-        if (lastDate.size() > 10)
+        if (lastDate.size() > 10 || end == numValue.npos || start == numValue.npos)
         {
             std::cout << "Error: bad input => "<< str << std::endl;
             continue;
         }
+        std::string numValue1 = numValue.substr(start, end - start + 1);
         int tabdate[3];
         tabdate[0] = atoi(lastDate.c_str());
         tabdate[1] = atoi(lastDate.c_str() + 5);
